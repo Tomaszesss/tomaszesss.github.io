@@ -3,81 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Wybór języka strony">
+    <meta name="description" content="Tomaszesss was been here">
     <title>Wybierz Język</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7f6;
-        }
-
-        .language-selection {
-            display: flex;
-            justify-content: space-around;
-            width: 50%;
-        }
-
-        /* Styl dla pierwszego przycisku (Polski) */
-        .button-polish {
-            padding: 20px 50px;
-            font-size: 1.5em;
-            border: 3px solid #5D9CEC;
-            border-radius: 50px;
-            background-color: transparent;
-            color: #5D9CEC;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .button-polish:hover {
-            background-color: #5D9CEC;
-            color: white;
-            transform: scale(1.1);
-        }
-
-        /* Styl dla drugiego przycisku (English) */
-        .button-english {
-            padding: 20px 60px;
-            font-size: 1.5em;
-            background-color: #27AE60;
-            border: none;
-            border-radius: 0px;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.4s ease, transform 0.3s;
-            box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.1);
-        }
-
-        .button-english:hover {
-            background-color: #2ECC71;
-            transform: rotate(3deg);
-        }
-
-        .content {
-            display: none;
-            text-align: center;
-        }
-
-        .content h1 {
-            color: #5D9CEC;
-        }
-
-        .content p {
-            font-size: 1.2em;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="language-selection">
+    <div class="wlanguage-selection">
+	<welcome>Choose your language</welcome>
+	<br>
+	</div>
+	<div class="language-selection">
         <button class="button-polish" onclick="loadContent('pl')">Polski</button>
         <button class="button-english" onclick="loadContent('en')">English</button>
     </div>
@@ -92,19 +28,7 @@
         <p>This is the English version of the page. Descriptions and content are tailored to the English language.</p>
     </div>
 
-    <script>
-        function loadContent(language) {
-            // Ukryj przyciski wyboru języka
-            document.querySelector('.language-selection').style.display = 'none';
-            
-            // Wyświetl odpowiednią zawartość w zależności od wybranego języka
-            if (language === 'pl') {
-                document.getElementById('content-pl').style.display = 'block';
-            } else if (language === 'en') {
-                document.getElementById('content-en').style.display = 'block';
-            }
-        }
-    </script>
+<script src="script.js"></script>
 
 </body>
 </html>
