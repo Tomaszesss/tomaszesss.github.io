@@ -62,14 +62,14 @@ h1 {
 	color: white;
 }
 
-header {
+plheader {
 	background-color: #5D9CEC; /* jasny niebieski */
 	color: white;
 	padding: 20px;
 	text-align: center;
 }
 
-footer {
+plfooter {
 	background-color: #333;
 	color: white;
 	text-align: center;
