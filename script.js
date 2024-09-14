@@ -8,3 +8,6 @@ if (language === 'pl') {
 	document.getElementById('content-en').style.display = 'block';
 	}
 }
+function EN() {
+	window.location.href = "https://tomaszesss.online/EN/about";
+}
