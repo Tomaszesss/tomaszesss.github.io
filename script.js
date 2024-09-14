@@ -9,5 +9,5 @@ if (language === 'pl') {
 	}
 }
 function EN() {
-	window.location.href = "https://tomaszesss.online/EN/about";
+	window.location.href = "https://tomaszesss.online/EN/home";
 }
