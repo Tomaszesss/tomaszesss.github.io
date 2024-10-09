@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundCloud Odtwarzacz</title>
+    <style>
+        /* Ukryj odtwarzacz na stałe */
+        #scPlayer {
+            display: none; /* Ukryj iframe */
+        }
+    </style>
+	<link rel="stylesheet" href="https://tomaszesss.online/style.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <h2>Odtwarzacz SoundCloud</h2>
+
+    <!-- Wbudowany odtwarzacz SoundCloud -->
+    <iframe id="scPlayer" width="100%" height="166" scrolling="no" frameborder="no"></iframe>
+
+    <!-- Przyciski sterujące -->
+    <button id="play" disabled>Odtwórz</button>
+    <button id="pause" disabled>Pauza</button>
+    <br>
+
+    <!-- Przewijanie -->
+    <label for="seekbar">Przewiń: </label>
+    <input type="range" id="seekbar" min="0" max="100" value="0" step="1" disabled>
+    <span id="currentTime">00:00</span> / <span id="totalTime">00:00</span>
+
+    <!-- Ładowanie API SoundCloud Widget -->
+    <script>
+        var widget; // Zmienna globalna dla widgetu
+        var trackDuration = 0; // Zmienna do przechowywania czasu utworu
+
+        // Funkcja inicjalizująca odtwarzacz SoundCloud
+        function initializePlayer() {
+            var widgetIframe = document.getElementById('scPlayer');
+            widgetIframe.src = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1931262431%3Fsecret_token%3Ds-3TRNHIwAfQh&auto_play=false"; // Ustaw źródło iframe
+            widget = SC.Widget(widgetIframe); // Uzyskujemy dostęp do widgetu
+
+            // Funkcja formatowania czasu
+            function formatTime(seconds) {
+                var minutes = Math.floor(seconds / 60);
+                var seconds = Math.floor(seconds % 60);
+                return minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+            }
+
+            // Gdy widget jest gotowy
+            widget.bind(SC.Widget.Events.READY, function() {
+                // Uzyskanie całkowitego czasu trwania utworu
+                widget.getDuration(function(duration) {
+                    trackDuration = duration / 1000; // Zapisujemy czas trwania w sekundach
+                    document.getElementById('totalTime').textContent = formatTime(trackDuration);
+                });
+                // Aktywacja elementów po pełnym załadowaniu widgetu
+                document.getElementById('play').disabled = false;
+                document.getElementById('pause').disabled = false;
+                document.getElementById('seekbar').disabled = false;
+            });
+
+            // Play - uruchamia odtwarzanie tylko po kliknięciu
+            document.getElementById('play').addEventListener('click', function() {
+                widget.seekTo(0);  // Ustaw start od początku
+                widget.play();     // Rozpocznij odtwarzanie
+            });
+
+            // Pause
+            document.getElementById('pause').addEventListener('click', function() {
+                widget.pause();
+            });
+
+            // Przewijanie
+            document.getElementById('seekbar').addEventListener('input', function() {
+                var seekValue = this.value;
+                var seekTime = (seekValue / 100) * trackDuration;
+                widget.seekTo(seekTime * 1000);  // seekTime w milisekundach
+            });
+
+            // Aktualizowanie paska przewijania w czasie rzeczywistym
+            widget.bind(SC.Widget.Events.PLAY_PROGRESS, function(event) {
+                var currentTimeSec = event.currentPosition / 1000;
+                document.getElementById('currentTime').textContent = formatTime(currentTimeSec);
+                var progress = (currentTimeSec / trackDuration) * 100;
+                document.getElementById('seekbar').value = progress;
+            });
+        }
+
+        // Dodajemy nasłuch na pierwszy gest użytkownika
+        document.addEventListener('click', function() {
+            initializePlayer(); // Inicjalizuj odtwarzacz po pierwszym kliknięciu
+            // Usuwamy nasłuch po pierwszym kliknięciu, aby nie wywoływać inicjalizacji wielokrotnie
+            document.removeEventListener('click', arguments.callee);
+        }, { once: true }); // Użyj opcjonalnego obiektu, aby usunąć nasłuch po pierwszym kliknięciu
+    </script>
+
+    <script src="https://w.soundcloud.com/player/api.js"></script> <!-- Ładowanie API SoundCloud -->
+</body>
+</html>
