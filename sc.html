@@ -28,7 +28,7 @@
 
     <!-- Przewijanie -->
     <label for="seekbar">Przewiń: </label>
-    <input type="range" id="seekbar" min="0" max="100" value="0" step="1" disabled>
+    <input type="range" id="seekbar" min="0" max="100" value="0" disabled>
     <span id="currentTime">00:00</span> / <span id="totalTime">00:00</span>
 
     <!-- Ładowanie API SoundCloud Widget -->
@@ -95,6 +95,14 @@
             // Usuwamy nasłuch po pierwszym kliknięciu, aby nie wywoływać inicjalizacji wielokrotnie
             document.removeEventListener('click', arguments.callee);
         }, { once: true }); // Użyj opcjonalnego obiektu, aby usunąć nasłuch po pierwszym kliknięciu
+		
+		document.querySelector('button').addEventListener('click', () => {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    audioContext.resume().then(() => {
+        console.log('AudioContext resumed');
+    });
+});
+
     </script>
 
     <script src="https://w.soundcloud.com/player/api.js"></script> <!-- Ładowanie API SoundCloud -->
