@@ -52,3 +52,28 @@ audio.currentTime = seekTime;
 // Przykład dynamicznego ustawienia tytułu utworu
 var trackTitle = document.getElementById('trackTitle');
 trackTitle.textContent = "Nazwa Twojego Utworu.mp3"; // Zmieniamy tytuł
+
+
+let audioContext;
+
+function initializeAudioContext() {
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+}
+
+document.getElementById('playPauseBtn').addEventListener('click', function() {
+    initializeAudioContext();
+    togglePlayPause();
+});
+
+
+document.getElementById('playPauseBtn').addEventListener('click', function() {
+    if (audio.paused) {
+        audio.play().catch(function(error) {
+            console.error('Odtwarzanie nie zostało dozwolone: ', error);
+        });
+    } else {
+        audio.pause();
+    }
+});
