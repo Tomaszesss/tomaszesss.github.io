@@ -113,24 +113,24 @@ body, h1,h2,h3,h4,h5,h6 {
 	position: relative;
 }
 
-.player-container.h1 {
+h1#trackTitle {
 	font-size: 18px;
 	color: #4a90e2;
 	margin-bottom: 20px;
 }
 
-.player-container.audio {
+audio#audioPlayer {
 	display: none; /* Ukrywamy wbudowany odtwarzacz */
 }
 
-.player-container.controls {
+.controls {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 10px;
 }
 
-.player-container.progress-bar {
+progress-bar#progressBar {
 	width: 100%;
 	height: 10px;
 	background-color: #ddd;
@@ -140,13 +140,13 @@ body, h1,h2,h3,h4,h5,h6 {
 	cursor: pointer;
 }
 
-.player-container.progress {
+.progress {
 	height: 100%;
 	width: 0;
 	background-color: orange; /* Pasek postępu w kolorze pomarańczowym */
 }
 
-.player-container.button {
+button#playPauseBtn {
 	padding: 10px 20px;
 	background-color: #4a90e2;
 	color: #fff;
@@ -156,7 +156,7 @@ body, h1,h2,h3,h4,h5,h6 {
 	font-size: 16px;
 }
 
-.player-container.button:hover {
+button#playPauseBtn:hover {
 	background-color: #357abd;
 }
 

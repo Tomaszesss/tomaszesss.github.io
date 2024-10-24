@@ -77,4 +77,4 @@ document.getElementById('playPauseBtn').addEventListener('click', function() {
         audio.pause();
     }
 });
-};
+});
