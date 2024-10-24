@@ -13,7 +13,7 @@ function EN() {
 }
 
 /* scripf to player */
-
+document.addEventListener('DOMContentLoaded', function() {
 var audio = document.getElementById('audioPlayer');
 var playPauseBtn = document.getElementById('playPauseBtn');
 var progressBar = document.getElementById('progressBar');
@@ -77,3 +77,4 @@ document.getElementById('playPauseBtn').addEventListener('click', function() {
         audio.pause();
     }
 });
+};
