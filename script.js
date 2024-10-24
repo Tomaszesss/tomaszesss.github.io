@@ -30,6 +30,8 @@ function togglePlayPause() {
 	}
 }
 
+playPauseBtn.addEventListener('click', togglePlayPause);
+
         // Aktualizacja paska postępu w trakcie odtwarzania
 audio.ontimeupdate = function() {
 	var percentage = (audio.currentTime / audio.duration) * 100;
