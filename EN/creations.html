@@ -55,7 +55,22 @@
 	<!-- Grid for photos -->
 	<div class="w3-row-padding" style="margin:0 -16px">
 	<div class="w3-half">
-	<img src="https://tomaszesss.online/Photos/logo.png" style="width:100%">
+		<div class="player-container">
+			<h1 id="trackTitle">Tytuł utworu</h1>
+
+			<audio id="audioPlayer">
+            <source src="https://tomaszesss.online/Audio/beat.mp3" type="audio/mpeg">
+            Twoja przeglądarka nie obsługuje odtwarzania plików audio.
+			</audio>
+
+			<div class="controls">
+				<button id="playPauseBtn" onclick="togglePlayPause()">Odtwórz</button>
+			</div>
+
+			<div class="progress-bar" id="progressBar" onclick="seekAudio(event)">
+				<div class="progress" id="progress"></div>
+			</div>
+		</div>
 	</div>
 
 	<div class="w3-half">
