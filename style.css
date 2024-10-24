@@ -113,24 +113,24 @@ body, h1,h2,h3,h4,h5,h6 {
 	position: relative;
 }
 
-h1 {
+.player-container.h1 {
 	font-size: 18px;
 	color: #4a90e2;
 	margin-bottom: 20px;
 }
 
-audio {
+.player-container.audio {
 	display: none; /* Ukrywamy wbudowany odtwarzacz */
 }
 
-.controls {
+.player-container.controls {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 10px;
 }
 
-.progress-bar {
+.player-container.progress-bar {
 	width: 100%;
 	height: 10px;
 	background-color: #ddd;
@@ -140,13 +140,13 @@ audio {
 	cursor: pointer;
 }
 
-.progress {
+.player-container.progress {
 	height: 100%;
 	width: 0;
 	background-color: orange; /* Pasek postępu w kolorze pomarańczowym */
 }
 
-button {
+.player-container.button {
 	padding: 10px 20px;
 	background-color: #4a90e2;
 	color: #fff;
@@ -156,7 +156,7 @@ button {
 	font-size: 16px;
 }
 
-button:hover {
+.player-container.button:hover {
 	background-color: #357abd;
 }
 
@@ -169,7 +169,7 @@ button:hover {
 
 @media (min-width: 769px) {
 .player-container {
-	width: 30%; /* 30% szerokości na większych ekranach */
+	width: 100%; /* 30% szerokości na większych ekranach */
 	max-width: 400px; /* Maksymalnie 400px */
 }
 }
