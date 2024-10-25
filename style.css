@@ -100,7 +100,7 @@ body, h1,h2,h3,h4,h5,h6 {
 }}
 
 /* Style to player */
-.player-container {
+#playerContainer {
 	background-color: #fff;
 	padding: 20px;
 	border-radius: 10px;
@@ -113,24 +113,24 @@ body, h1,h2,h3,h4,h5,h6 {
 	position: relative;
 }
 
-h1#trackTitle {
+#trackTitle {
 	font-size: 18px;
 	color: #4a90e2;
 	margin-bottom: 20px;
 }
 
-audio#audioPlayer {
+#audioPlayer {
 	display: none; /* Ukrywamy wbudowany odtwarzacz */
 }
 
-.controls {
+#controls {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 10px;
 }
 
-progress-bar#progressBar {
+#progressBar {
 	width: 100%;
 	height: 10px;
 	background-color: #ddd;
@@ -140,13 +140,13 @@ progress-bar#progressBar {
 	cursor: pointer;
 }
 
-.progress {
+#progress {
 	height: 100%;
 	width: 0;
 	background-color: orange; /* Pasek postępu w kolorze pomarańczowym */
 }
 
-button#playPauseBtn {
+#playPauseBtn {
 	padding: 10px 20px;
 	background-color: #4a90e2;
 	color: #fff;
@@ -156,19 +156,19 @@ button#playPauseBtn {
 	font-size: 16px;
 }
 
-button#playPauseBtn:hover {
+#playPauseBtn:hover {
 	background-color: #357abd;
 }
 
 /* Stylowanie responsywne */
 @media (max-width: 768px) {
-.player-container {
+#playerContainer {
 	width: 70%; /* 70% szerokości na telefonach i mniejszych ekranach */
 }
 }
 
 @media (min-width: 769px) {
-.player-container {
+#playerContainer {
 	width: 100%; /* 30% szerokości na większych ekranach */
 	max-width: 400px; /* Maksymalnie 400px */
 }
