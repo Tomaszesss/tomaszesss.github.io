@@ -101,12 +101,12 @@ body, h1,h2,h3,h4,h5,h6 {
 
 /* Style to player */
 #playerContainer {
-	background-color: #fff;
+	background-color: #222;
 	padding: 20px;
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	text-align: center;
-	height: 200px; /* Wysokość */
+	height: 200px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -133,7 +133,7 @@ body, h1,h2,h3,h4,h5,h6 {
 #progressBar {
 	width: 100%;
 	height: 10px;
-	background-color: #ddd;
+	background-color: #444;
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -143,12 +143,12 @@ body, h1,h2,h3,h4,h5,h6 {
 #progress {
 	height: 100%;
 	width: 0;
-	background-color: orange; /* Pasek postępu w kolorze pomarańczowym */
+	background-color: #FF6100; /* color of progress line */
 }
 
 #playPauseBtn {
 	padding: 10px 20px;
-	background-color: #4a90e2;
+	background-color: #f3194e;
 	color: #fff;
 	border: none;
 	border-radius: 5px;
@@ -157,19 +157,19 @@ body, h1,h2,h3,h4,h5,h6 {
 }
 
 #playPauseBtn:hover {
-	background-color: #357abd;
+	background-color: #df214f;
 }
 
 /* Stylowanie responsywne */
 @media (max-width: 768px) {
 #playerContainer {
-	width: 70%; /* 70% szerokości na telefonach i mniejszych ekranach */
+	width: 80%; /* 80% width on small displays */
 }
 }
 
 @media (min-width: 769px) {
 #playerContainer {
-	width: 100%; /* 30% szerokości na większych ekranach */
-	max-width: 400px; /* Maksymalnie 400px */
+	width: 100%; /* 100% width on big displays */
+	max-width: 400px;
 }
 }
