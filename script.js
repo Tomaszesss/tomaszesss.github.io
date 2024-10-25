@@ -16,10 +16,13 @@ function EN() {
 
 // Upewniamy się, że DOM został załadowany
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // Pobieramy kontener z nazwą pliku w klasie
-    var container = document.querySelector('#audioPlayerContainer');
-    
+   
+   // Budujemy kontenery z playerem
+	var containers = document.querySelectorAll('[class*=".mp3"]');
+
+	containers.forEach(function(container) {
+
+ 
     // Odczytujemy nazwę pliku z klasy
     var fileName = container.className;
 
@@ -105,4 +108,5 @@ document.addEventListener('DOMContentLoaded', function() {
         audio.currentTime = seekTime;
     });
 
+});
 });
