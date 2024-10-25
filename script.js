@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var fileName = container.className;
 
     // Prefix ścieżki do pliku audio
-    var filePathPrefix = 'https://tomaszesss.online/Audio/';  // np. ścieżka do folderu z muzyką
+    var filePathPrefix = 'https://tomaszesss.online/Audio/';  // ścieżka do folderu z muzyką
 
     // Pełna ścieżka do pliku audio
     var audioFilePath = filePathPrefix + fileName;
