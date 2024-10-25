@@ -13,73 +13,6 @@ function EN() {
 }
 
 /* scripf to player */
-document.addEventListener('DOMContentLoaded', function() {
-var audio = document.getElementById('audioPlayer');
-var playPauseBtn = document.getElementById('playPauseBtn');
-var progressBar = document.getElementById('progressBar');
-var progress = document.getElementById('progress');
-
-// Funkcja odtwarzania/pauzy
-function togglePlayPause() {
-	if (audio.paused) {
-		audio.play();
-		playPauseBtn.textContent = 'Pauza'; // Zmiana tekstu na przycisku
-	} else {
-		audio.pause();
-		playPauseBtn.textContent = 'Odtwórz'; // Zmiana tekstu na przycisku
-	}
-}
-
-playPauseBtn.addEventListener('click', togglePlayPause);
-
-        // Aktualizacja paska postępu w trakcie odtwarzania
-audio.ontimeupdate = function() {
-	var percentage = (audio.currentTime / audio.duration) * 100;
-	progress.style.width = percentage + '%';
-
-// Jeśli utwór się zakończył, zresetuj przycisk
-	if (audio.ended) {
-		playPauseBtn.textContent = 'Odtwórz';
-	}
-};
-
-// Przewijanie utworu po kliknięciu na pasek postępu
-function seekAudio(event) {
-var barWidth = progressBar.clientWidth;
-var clickPosition = event.offsetX;
-var seekTime = (clickPosition / barWidth) * audio.duration;
-audio.currentTime = seekTime;
-}
-
-// Przykład dynamicznego ustawienia tytułu utworu
-var trackTitle = document.getElementById('trackTitle');
-trackTitle.textContent = "Nazwa Twojego Utworu.mp3"; // Zmieniamy tytuł
-
-
-let audioContext;
-
-function initializeAudioContext() {
-    if (!audioContext) {
-        audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    }
-}
-
-document.getElementById('playPauseBtn').addEventListener('click', function() {
-    initializeAudioContext();
-    togglePlayPause();
-});
-
-
-document.getElementById('playPauseBtn').addEventListener('click', function() {
-    if (audio.paused) {
-        audio.play().catch(function(error) {
-            console.error('Odtwarzanie nie zostało dozwolone: ', error);
-        });
-    } else {
-        audio.pause();
-    }
-});
-});
 
 // Upewniamy się, że DOM został załadowany
 document.addEventListener('DOMContentLoaded', function() {
@@ -91,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var fileName = container.className;
 
     // Prefix ścieżki do pliku audio
-    var filePathPrefix = 'https://tomaszesss.online/Audio/';  // np. ścieżka do folderu z muzyką
+    var filePathPrefix = 'https://tomaszesss.online/Audio/';  // ścieżka do folderu z muzyką
 
     // Pełna ścieżka do pliku audio
     var audioFilePath = filePathPrefix + fileName;
@@ -103,7 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Tworzymy tytuł utworu
     var trackTitle = document.createElement('h1');
     trackTitle.id = 'trackTitle';
-    trackTitle.textContent = fileName; // Wyświetla nazwę pliku jako tytuł
+	
+	// Usuwamy '.mp3' z nazwy pliku przed wyświetleniem
+	var titleWithoutExtension = fileName.replace('.mp3', '');
+	
+	// Ustawiamy tytuł utworu bez rozszerzenia
+	trackTitle.textContent = titleWithoutExtension;
+	
     playerContainer.appendChild(trackTitle);
 
     // Tworzymy element audio
