@@ -180,9 +180,16 @@ body, h1,h2,h3,h4,h5,h6 {
 
 /* cursors */
 body {
-	cursor: url('https://tomaszesss.online/Other/Normal.cur') 0 0, auto;
+	cursor: url('https://tomaszesss.online/Other/normal.cur') 0 0, auto;
 }
 
-.nie {
+img {
 	cursor: url('https://tomaszesss.online/Other/nie.ani') 0 0, auto;
+}
+
+a, button, input[type="button"] {
+	cursor: url('https://tomaszesss.online/Other/wybor.cur') 3 0, pointer;
+}
+#progress, #progressBar {
+	cursor: url('https://tomaszesss.online/Other/celownik.cur') 16 16, pointer;
 }
