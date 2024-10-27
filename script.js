@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	containers.forEach(function(container) {
 
+	var allAudioPlayers = [];
  
     // Odczytujemy nazwę pliku z klasy
     var fileName = container.className;
@@ -78,6 +79,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Funkcja odtwarzania/pauzy
     function togglePlayPause() {
         if (audio.paused) {
+			// Zatrzymujemy wszystkie inne odtwarzacze
+			allAudioPlayers.forEach(function(otherAudio) {
+				if (otherAudio !== audio) {
+					otherAudio.pause();
+				}
+			});
             audio.play();
             playPauseBtn.textContent = 'Pauza'; // Zmiana tekstu na przycisku
         } else {
