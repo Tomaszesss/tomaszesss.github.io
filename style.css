@@ -180,9 +180,9 @@ body, h1,h2,h3,h4,h5,h6 {
 
 /* cursors */
 body {
-	cursor: url('https://tomaszesss.online/Other/Normal.cur') 0 0 auto;
+	cursor: url('https://tomaszesss.online/Other/Normal.cur') 0 0, auto;
 }
 
 .nie {
-	cursor: url('https://tomaszesss.online/Other/nie.ani') 0 0 auto;
+	cursor: url('https://tomaszesss.online/Other/nie.ani') 0 0, auto;
 }
